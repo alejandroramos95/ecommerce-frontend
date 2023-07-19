@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "nombre": "Remera amarilla",
+    "descripcion": "Remera manga corta, color amarillo",
+    "imagen": "https://images.evisos.com.ar/2017/10/01/remeras-lisas-de-fabrica-para-estampar_seqibj8_3.jpg",
+    "precio": 5000,
+    "stock": 50,
+    "categoria": "remeras"
+  },
+  {
+    "id": 2,
+    "nombre": "Remera roja",
+    "descripcion": "Remera manga corta, color rojo",
+    "imagen": "https://images.evisos.com.ar/2017/10/01/remeras-lisas-de-fabrica-para-estampar_v5bhbqx_3.jpg",
+    "precio": 5000,
+    "stock": 50,
+    "categoria": "remeras"
+  },
+  {
+    "id": 3,
+    "nombre": "Remera negra",
+    "descripcion": "Remera manga corta, color negro",
+    "imagen": "https://images.evisos.com.ar/2017/10/01/remeras-lisas-de-fabrica-para-estampar_ylnzhha_3.jpg",
+    "precio": 5000,
+    "stock": 50,
+    "categoria": "remeras"
+  },
+  {
+    "id": 4,
+    "nombre": "Pantalon de jean, negro",
+    "descripcion": "Pantalon de jean, color negro",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_921099-MLA53039638527_122022-O.webp",
+    "precio": 15000,
+    "stock": 20,
+    "categoria": "pantalones"
+  },
+  {
+    "id": 5,
+    "nombre": "Pantalon de jean, azul",
+    "descripcion": "Pantalon de jean, color azul",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_660695-MLA53039623734_122022-O.webp",
+    "precio": 15000,
+    "stock": 10,
+    "categoria": "pantalones"
+  },
+  {
+    "id": 6,
+    "nombre": "Pantalon de jogging, gris",
+    "descripcion": "Pantalon de joggin, color gris",
+    "imagen": "https://www.cottonclub.com.ar/pub/media/catalog/product/cache/65e2670acbf1788249a95924f3789a80/7/4/741_melange_8_3.jpg",
+    "precio": 10000,
+    "stock": 10,
+    "categoria": "pantalones"
+  },
+  {
+    "id": 7,
+    "nombre": "Zapatillas DC, negro",
+    "descripcion": "Zapatillas DC, uso urbano, color negro",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_613468-MLA69262058200_052023-O.webp",
+    "precio": 40000,
+    "stock": 10,
+    "categoria": "calzado"
+  },
+  {
+    "id": 8,
+    "nombre": "Zapatillas DC, blanco",
+    "descripcion": "Zapatillas DC, uso urbano, color blanco",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_778095-MLA50931080834_072022-O.webp",
+    "precio": 42000,
+    "stock": 10,
+    "categoria": "calzado"
+  },
+  {
+    "id": 9,
+    "nombre": "Zapatillas DC, azul",
+    "descripcion": "Zapatillas DC, uso urbano, color azul",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_712901-MLA70306779821_072023-O.webp",
+    "precio": 40000,
+    "stock": 10,
+    "categoria": "calzado"
+  }
+]

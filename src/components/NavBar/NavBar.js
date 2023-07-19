@@ -2,21 +2,40 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget.js";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">ARH</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#register">Register</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
-            <Nav.Link href="#cart">
-              <CartWidget />
-            </Nav.Link>
-          </Nav>
+          <Link className="navbar-brand" to={"/"}>
+            ARH
+          </Link>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  to={"/category/remeras"}
+                >
+                  Remeras
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to={"/category/pantalones"}>
+                  Pantalones
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to={"/category/calzado"}>
+                  Calzado
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <CartWidget />
         </Container>
       </Navbar>
     </>

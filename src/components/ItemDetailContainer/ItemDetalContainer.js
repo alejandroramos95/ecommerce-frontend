@@ -1,21 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import arrayProductos from "../../Json/arrayProductos.json";
-import ItemList from "../ItemList/ItemList.js";
+import ItemDetail from "../ItemDetail/ItemDetail.js";
 
-function ItemListContainer() {
+const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     const promesa = new Promise((resolve) => {
       setTimeout(() => {
-        resolve(
-          id
-            ? arrayProductos.filter((item) => item.categoria === id)
-            : arrayProductos
-        );
+        resolve(arrayProductos.find((item) => item.id === parseInt(id)));
       }, 2000);
     });
 
@@ -26,11 +22,9 @@ function ItemListContainer() {
 
   return (
     <div className="container">
-      <div className="row">
-        <ItemList item={item} />
-      </div>
+      <ItemDetail item={item} />
     </div>
   );
-}
+};
 
-export default ItemListContainer;
+export default ItemDetailContainer;
