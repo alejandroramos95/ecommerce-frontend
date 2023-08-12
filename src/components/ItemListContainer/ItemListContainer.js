@@ -1,36 +1,38 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
+import Spinner from "../Spinner/Spinner.jsx";
 import { useParams } from "react-router-dom";
-import arrayProductos from "../../Json/arrayProductos.json";
-import ItemList from "../ItemList/ItemList.js";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
-function ItemListContainer() {
-  const [item, setItem] = useState([]);
-  const { id } = useParams();
+const ItemListContainer = () => {
+  const { categoryId } = useParams();
+
+  const [items, setItems] = useState();
+  const [load, setLoad] = useState(true);
+
+  const getData = async (categoria) => {
+    setLoad(true);
+    const querydb = getFirestore();
+    const queryCollection = categoria
+      ? query(collection(querydb, "items"), where("category", "==", categoria))
+      : collection(querydb, "items");
+    const resultado = await getDocs(queryCollection);
+    const datos = resultado.docs.map((p) => ({ id: p.id, ...p.data() }));
+    setItems(datos);
+    setLoad(false);
+  };
 
   useEffect(() => {
-    const promesa = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(
-          id
-            ? arrayProductos.filter((item) => item.categoria === id)
-            : arrayProductos
-        );
-      }, 2000);
-    });
+    getData(categoryId);
+  }, [categoryId]);
 
-    promesa.then((data) => {
-      setItem(data);
-    });
-  }, [id]);
-
-  return (
-    <div className="container">
-      <div className="row">
-        <ItemList item={item} />
-      </div>
-    </div>
-  );
-}
+  return <>{load ? <Spinner /> : <ItemList data={items} />}</>;
+};
 
 export default ItemListContainer;

@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-function CartWidget() {
+import { CartContext } from "../../context/CartContext";
+
+const CartWidget = () => {
+  const { getQuantity } = useContext(CartContext);
   return (
-    <div>
-      <button type="button" className="btn colorCartButton position-relative">
+    <>
+      <Link to="/cart">
         <i class="bi bi-cart"></i>
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          0
-        </span>
-      </button>
-    </div>
+        <button style={{ backgroundColor: "#e4c360", border: "none" }}>
+          {getQuantity()}
+        </button>
+      </Link>
+    </>
   );
-}
+};
 
 export default CartWidget;

@@ -1,19 +1,44 @@
-import React from "react";
-import ItemCount from "../ItemCount/ItemCount.js";
+import React, { useState, useContext } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ item }) => {
-  //console.log(item.stock);
+  const [stock, setStock] = useState(item.stock);
+
+  const { addItem } = useContext(CartContext);
+
+  const handleOnAdd = (count) => {
+    addItem(
+      { id: item.id, price: item.price, title: item.title, image: item.image },
+      count
+    );
+  };
+
   return (
-    <div className="row">
-      <div className="col-md-4 offset-md-4">
-        <img src={item.imagen} className="img-fluid" alt={item.nombre} />
-        <h2>{item.nombre}</h2>
-        <p>{item.descripcion}</p>
-        <p> Precio $ {item.precio}</p>
-        <p> Cantidad: {item.stock}</p>
-      </div>
-      <div>
-        <ItemCount stockItems={item.stock} />
+    <div className="container detailsStyle">
+      <h1 className="text-center titleStyle">{item.title}</h1>
+      <div className="row">
+        <div className="col">
+          <img
+            src={item.image}
+            className="rounded mx-auto d-block img_med"
+            alt={item.title}
+          />
+        </div>
+        <div className="col">
+          <h3>DESCRIPCION:</h3>
+          <p>{item.description}</p>
+          <br />
+          <h3>PRECIO: {item.price}</h3>
+          <hr />
+          <br />
+          <h3>STOCK: {item.stock}</h3>
+          <br />
+          <br />
+          <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} />
+          <br />
+        </div>
       </div>
     </div>
   );
