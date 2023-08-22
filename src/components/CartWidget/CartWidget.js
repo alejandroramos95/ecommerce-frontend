@@ -9,7 +9,7 @@ const CartWidget = () => {
     <>
       <Link to="/cart">
         <i class="bi bi-cart"></i>
-        <button style={{ backgroundColor: "#e4c360", border: "none" }}>
+        <button style={{ backgroundColor: "#FF0000", border: "none" }}>
           {getQuantity()}
         </button>
       </Link>

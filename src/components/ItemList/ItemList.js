@@ -4,7 +4,7 @@ import Item from "../Item/Item";
 const ItemList = ({ data }) => {
   return (
     <div className="container">
-      <div className="row justify-content-evenly">
+      <div className="row flex-colum flex-md-row">
         {data.map((i) => (
           <Item
             item={i}

@@ -6,9 +6,9 @@ export const Checkout = () => {
   const [orderId, setOrderId] = useState();
   const [buyer, setBuyer] = useState({});
   const [emailConfirmation, setEmailConfirmation] = useState();
-  const { nombre, email, telefono } = buyer;
+  const { nombre, apellido, email, telefono } = buyer;
 
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
 
   const handleEmailConfirmation = (e) => {
     setEmailConfirmation(e.target.value);
@@ -31,6 +31,7 @@ export const Checkout = () => {
       const dia = new Date();
       const data = { buyer, cart, total, dia };
       generateOrder(data);
+      clearCart();
     } else {
       alert("Los emails no coinciden.");
     }
@@ -60,6 +61,16 @@ export const Checkout = () => {
           <br />
           <br />
           <input
+            type="text"
+            name="apellido"
+            placeholder="Apellido"
+            value={apellido}
+            onChange={handleInputChange}
+            required
+          />
+          <br />
+          <br />
+          <input
             type="email"
             name="email"
             placeholder="Email"
@@ -71,7 +82,7 @@ export const Checkout = () => {
           <input
             type="email"
             name="emailConfirmation"
-            placeholder="Email"
+            placeholder="Repetir email"
             value={emailConfirmation}
             onChange={handleEmailConfirmation}
           />

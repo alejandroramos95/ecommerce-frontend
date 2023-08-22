@@ -12,13 +12,14 @@ function NavBar() {
             ARH
           </Link>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav flex-colum flex-md-row">
               <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  aria-current="page"
-                  to={"/category/remeras"}
-                >
+                <NavLink className="nav-link" to={"/"}>
+                  Inicio
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to={"/category/remeras"}>
                   Remeras
                 </NavLink>
               </li>

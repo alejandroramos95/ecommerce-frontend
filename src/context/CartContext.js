@@ -29,8 +29,15 @@ const CartProvider = ({ children }) => {
   const getQuantity = () => {
     return cart.reduce((acum, unItem) => acum + unItem.cant, 0);
   };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, removeItem, addItem, getQuantity }}>
+    <CartContext.Provider
+      value={{ cart, removeItem, addItem, getQuantity, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

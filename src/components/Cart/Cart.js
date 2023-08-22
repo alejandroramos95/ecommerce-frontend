@@ -21,9 +21,9 @@ export const Cart = () => {
             <div key={item.id}>
               <h3>{item.title}</h3>
               <img src={item.image} alt={item.name} />
+              <p>Precio unitario: ${item.price}</p>
               <p>Cantidad: {item.cant}</p>
-              <p>Precio unitario: {item.price}</p>
-              <p>Precio: {item.price * item.cant}</p>
+              <p>Precio total: ${item.price * item.cant}</p>
               <button onClick={() => removeItem(item.id)}>
                 Eliminar Producto
               </button>
@@ -31,7 +31,7 @@ export const Cart = () => {
               <br />
             </div>
           ))}
-          Precio total de la orden: {totalAmount}
+          Total a pagar: ${totalAmount}
         </div>
       )}
 
