@@ -26,6 +26,10 @@ react-boostrap
 bootstrap-icons
 firebase
 
+Utilicé react-boostrap y bootstrap-icons por la facilidad que me brindó para resolver ciertos componentes.
+El componente CartWidget utiliza boostrap-icons, y los componentes Item y NavBar react-boostrap.
+También utilicé firebase para almacenar las colecciones y los datos utilizados en los componentes Checkout, ItemDetailContainer y ItemListContainer.
+
 ## Firebase colecciones
 
 items
