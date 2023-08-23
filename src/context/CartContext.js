@@ -36,21 +36,22 @@ const CartProvider = ({ children }) => {
         const updatedCart = prevCart.map((prevItem) => {
           const total = prevItem.cant - 1;
           if (prevItem.id === item.id && total <= 0) {
-            console.log("1");
             return prevCart.filter((i) => i.id !== item.id);
           }
           if (prevItem.id === item.id) {
-            console.log("2");
             return { ...prevItem, cant: total };
           } else {
-            console.log("3", prevItem);
             return prevCart;
           }
         });
-        console.log("4update", updatedCart);
         return updatedCart;
       }
     });
+  };
+  useEffect(() => {}, [cart]);
+
+  const removeItemsPerId = (item) => {
+    setCart((prevCart) => prevCart.filter((e) => e.id !== item.id));
   };
 
   const getQuantity = () => {
@@ -63,7 +64,14 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, removeItem, addItem, getQuantity, clearCart }}
+      value={{
+        cart,
+        removeItem,
+        removeItemsPerId,
+        addItem,
+        getQuantity,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
