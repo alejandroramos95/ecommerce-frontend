@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { cart, removeItem } = useContext(CartContext);
+
   const totalAmount = cart.reduce(
     (total, product) => total + product.price * product.cant,
     0
@@ -24,7 +25,7 @@ export const Cart = () => {
               <p>Precio unitario: ${item.price}</p>
               <p>Cantidad: {item.cant}</p>
               <p>Precio total: ${item.price * item.cant}</p>
-              <button onClick={() => removeItem(item.id)}>
+              <button onClick={() => removeItem(item)}>
                 Eliminar Producto
               </button>
               <hr />

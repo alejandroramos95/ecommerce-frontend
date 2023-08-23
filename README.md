@@ -7,7 +7,9 @@ Proyecto e-commerce realizado con React Js. La app muestra un catalogo con un li
 Para acceder al proyecto clonándolo, deberás ejecutar en consola:
 
 git clone https://github.com/alejandroramos95/ecommerce-frontend
+
 npm install
+
 npm start
 
 ## Tecnologías principales:

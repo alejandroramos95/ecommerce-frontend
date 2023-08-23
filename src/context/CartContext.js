@@ -9,11 +9,18 @@ const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((prevItem) => prevItem.id === item.id);
       if (existingItem) {
-        const updatedCart = prevCart.map((prevItem) =>
-          prevItem.id === item.id
-            ? { ...prevItem, cant: prevItem.cant + cant }
-            : prevItem
-        );
+        const updatedCart = prevCart.map((prevItem) => {
+          const total = prevItem.cant + cant;
+          if (prevItem.id === item.id && item.stock < total) {
+            alert("No hay stock suficiente.");
+            return prevItem;
+          }
+          if (prevItem.id === item.id) {
+            return { ...prevItem, cant: total };
+          } else {
+            return prevItem;
+          }
+        });
         return updatedCart;
       } else {
         return [...prevCart, { ...item, cant }];
@@ -22,8 +29,28 @@ const CartProvider = ({ children }) => {
   };
   useEffect(() => {}, [cart]);
 
-  const removeItem = (itemId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  const removeItem = (item) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((prevItem) => prevItem.id === item.id);
+      if (existingItem) {
+        const updatedCart = prevCart.map((prevItem) => {
+          const total = prevItem.cant - 1;
+          if (prevItem.id === item.id && total <= 0) {
+            console.log("1");
+            return prevCart.filter((i) => i.id !== item.id);
+          }
+          if (prevItem.id === item.id) {
+            console.log("2");
+            return { ...prevItem, cant: total };
+          } else {
+            console.log("3", prevItem);
+            return prevCart;
+          }
+        });
+        console.log("4update", updatedCart);
+        return updatedCart;
+      }
+    });
   };
 
   const getQuantity = () => {
